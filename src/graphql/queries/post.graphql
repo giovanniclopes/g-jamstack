@@ -6,7 +6,7 @@ query Post($slug: String!) {
   ) {
     title
     content {
-      markdown
+      html
     }
     coverImage {
       url(

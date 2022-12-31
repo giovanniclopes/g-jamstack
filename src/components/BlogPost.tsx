@@ -26,12 +26,12 @@ export function BlogPost({ post }: BlogPostProps) {
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
           <Link href={post.href}>
-            <a className="block mt-2">
+            <div className="block mt-2">
               <p className="text-xl font-semibold text-gray-900">
                 {post.title}
               </p>
               <p className="mt-3 text-base text-gray-500">{post.description}</p>
-            </a>
+            </div>
           </Link>
         </div>
         <div className="mt-6 flex items-center">
