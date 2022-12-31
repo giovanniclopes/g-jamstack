@@ -111,14 +111,13 @@ export function Header() {
               </div>
               <div className="hidden md:flex md:space-x-10">
                 {navigation.map((item) => (
-                  (<Link
+                  <Link
                     href={item.href}
                     key={item.name}
-                    className="font-medium text-gray-500 hover:text-gray-900">
-
+                    className="font-medium text-gray-500 hover:text-gray-900"
+                  >
                     {item.name}
-
-                  </Link>)
+                  </Link>
                 ))}
               </div>
               <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
@@ -145,7 +144,7 @@ export function Header() {
           >
             <Popover.Panel
               focus
-              className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              className="relative top-[-60px] md:hidden"
             >
               <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div className="px-5 pt-4 flex items-center justify-between">
