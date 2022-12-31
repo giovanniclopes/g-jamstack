@@ -1,13 +1,17 @@
 import { client, ssrCache } from "../../lib/urql";
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { PostDocument, usePostQuery } from './../../generated/graphql';
+import { GetStaticPaths, GetStaticProps } from "next";
+import { PostDocument, usePostQuery } from "./../../generated/graphql";
 
 export default function Post({ slug }) {
-  const [{ data: { post }}] = usePostQuery({
+  const [
+    {
+      data: { post },
+    },
+  ] = usePostQuery({
     variables: {
       slug,
-    }
-  })
+    },
+  });
 
   return (
     <div className="relative pb-16 bg-white overflow-hidden">
@@ -34,17 +38,17 @@ export default function Post({ slug }) {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking'
-  }
-}
+    fallback: "blocking",
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  await client.query(PostDocument, { slug: params.slug}).toPromise()
+  await client.query(PostDocument, { slug: params.slug }).toPromise();
 
   return {
     props: {
       urqlState: ssrCache.extractData(),
       slug: params.slug,
-    }
-  }
-}
+    },
+  };
+};
