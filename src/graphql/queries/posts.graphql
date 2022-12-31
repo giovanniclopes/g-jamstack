@@ -15,7 +15,6 @@ query Posts {
     }
     author {
       name
-      id
       picture {
         url(
           transformation: {
